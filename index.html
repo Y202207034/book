@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>서점 - 랜덤 추천 & 책 검색</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <header class="app-header" role="banner">
+    <div class="container header-inner">
+      <button id="menu-toggle" class="hamburger" aria-label="카테고리 메뉴 열기" aria-controls="sidebar" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <h1 class="brand" aria-label="서점 홈">📚 파란서점</h1>
+      <form id="search-form" class="search" role="search" aria-label="책 검색">
+        <label class="visually-hidden" for="query">책 제목, 저자 또는 장르 검색</label>
+        <input id="query" name="query" type="search" placeholder="책 제목, 저자 또는 장르 검색" autocomplete="off" />
+        <button type="submit" class="btn">검색</button>
+      </form>
+    </div>
+  </header>
+
+  <div id="overlay" class="overlay" hidden></div>
+
+  <aside id="sidebar" class="sidebar" aria-label="카테고리 사이드바" aria-hidden="true">
+    <div class="sidebar-head">
+      <strong>카테고리</strong>
+      <button id="menu-close" class="btn btn-light btn-sm" aria-label="카테고리 메뉴 닫기">닫기</button>
+    </div>
+    <nav>
+      <ul class="category-list">
+        <li><button class="cat-btn" data-category="ALL">전체</button></li>
+        <li><button class="cat-btn" data-category="과학">과학</button></li>
+        <li><button class="cat-btn" data-category="요리">요리</button></li>
+        <li><button class="cat-btn" data-category="게임">게임</button></li>
+        <li><button class="cat-btn" data-category="자격증">자격증</button></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main id="main" class="container" role="main">
+    <section aria-labelledby="recommend-title" class="card">
+      <div class="card-head">
+        <h2 id="recommend-title">오늘의 랜덤 책 추천</h2>
+        <button id="reroll" class="btn btn-light" aria-label="다른 책 추천 받기">다시 추천</button>
+      </div>
+      <div id="recommend" class="recommend"></div>
+    </section>
+
+    <section aria-labelledby="results-title" class="card">
+      <h2 id="results-title">검색/카테고리 결과</h2>
+      <div id="results" class="results" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="container">
+      <small>© 2025 파란서점</small>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
+
